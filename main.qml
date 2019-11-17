@@ -28,10 +28,10 @@ Window {
   width: 1280;
   height: 720;
   title: qsTr("FlapQML");
-  property string charSequence: " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#!@:";
+  property string charSequence: " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#!.:";
   property int currPtr: 0;
 
-  property int animDuration: 80;
+  property int animDuration: 60;
   color: "#0c0c0c"
 
   property var flapboard: [flap1, flap2, flap3, flap4, flap5, flap6, flap7, flap8, flap9, flap10, flap11, flap12, flap13, flap14, flap15, flap16, flap17, flap18, flap19, flap20, flap21, flap22, flap23, flap24];
@@ -46,36 +46,57 @@ Window {
         id: flap1;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#c8102e";
+        midColor: "#b52121";
+        darkColor: "#a31d1d";
       }
       Flap {
         id: flap2;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#ff8200";
+        midColor: "#db7100";
+        darkColor: "#c26400";
       }
       Flap {
         id: flap3;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#fce300";
+        midColor: "#d9c300";
+        darkColor: "#c9b500";
       }
       Flap {
         id: flap4;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#f8a3bc";
+        midColor: "#de90a7";
+        darkColor: "#cc8398";
       }
       Flap {
         id: flap5;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#0072ce";
+        midColor: "#0064b5";
+        darkColor: "#00569c";
       }
       Flap {
         id: flap6;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#68c24a";
+        midColor: "#5aa840";
+        darkColor: "#4f9438";
       }
       Flap {
         id: flap7;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#84754e";
+        midColor: "#736544";
+        darkColor: "#615539";
       }
       Flap {
         id: flap8;
@@ -89,36 +110,57 @@ Window {
         id: flap9;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#c8102e";
+        midColor: "#b52121";
+        darkColor: "#a31d1d";
       }
       Flap {
         id: flap10;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#ff8200";
+        midColor: "#db7100";
+        darkColor: "#c26400";
       }
       Flap {
         id: flap11;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#fce300";
+        midColor: "#d9c300";
+        darkColor: "#c9b500";
       }
       Flap {
         id: flap12;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#f8a3bc";
+        midColor: "#de90a7";
+        darkColor: "#cc8398";
       }
       Flap {
         id: flap13;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#0072ce";
+        midColor: "#0064b5";
+        darkColor: "#00569c";
       }
       Flap {
         id: flap14;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#68c24a";
+        midColor: "#5aa840";
+        darkColor: "#4f9438";
       }
       Flap {
         id: flap15;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#84754e";
+        midColor: "#736544";
+        darkColor: "#615539";
       }
       Flap {
         id: flap16;
@@ -132,36 +174,57 @@ Window {
         id: flap17;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#c8102e";
+        midColor: "#b52121";
+        darkColor: "#a31d1d";
       }
       Flap {
         id: flap18;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#ff8200";
+        midColor: "#db7100";
+        darkColor: "#c26400";
       }
       Flap {
         id: flap19;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#fce300";
+        midColor: "#d9c300";
+        darkColor: "#c9b500";
       }
       Flap {
         id: flap20;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#f8a3bc";
+        midColor: "#de90a7";
+        darkColor: "#cc8398";
       }
       Flap {
         id: flap21;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#0072ce";
+        midColor: "#0064b5";
+        darkColor: "#00569c";
       }
       Flap {
         id: flap22;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#68c24a";
+        midColor: "#5aa840";
+        darkColor: "#4f9438";
       }
       Flap {
         id: flap23;
         flapAnimDuration: animDuration;
         flapText: " "
+        brightColor: "#84754e";
+        midColor: "#736544";
+        darkColor: "#615539";
       }
       Flap {
         id: flap24;
@@ -186,7 +249,7 @@ Window {
         var characters = flaptext.text.split("");
         for (var i = 0; i < flapboard.length && i < characters.length; i++) {
           var flapchar = characters[i];
-          flapboard[i].rotate(charSequence, flapchar, false);
+          flapboard[i].flip(charSequence, flapchar, false);
         }
       }
       text: "Flip";

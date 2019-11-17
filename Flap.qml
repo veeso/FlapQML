@@ -26,7 +26,7 @@ Item {
   id: flap;
   property int flapWidth: 128;
   property int flapHeight: 98;
-  property int flapFontSize: flapHeight * 2;
+  property int flapFontSize: 182;
   property string flapFontFamily: "Helvetica";
   property string flapText: " ";
   property int flapAnimDuration: 80;
@@ -36,6 +36,7 @@ Item {
   property string midColor: "#101010";
   property string darkColor: "#000000";
   property string textColor: "white";
+  property string backgroundColor: "#0c0c0c";
 
   property int status: -1;
 
@@ -54,14 +55,18 @@ Item {
     property int angle: 0;
     front: Rectangle {
       id: upperFlapRect;
-      anchors.fill: parent;
+      y: 0;
+      width: parent.width;
+      height: parent.height;
       gradient: Gradient {
         GradientStop { position: 0.0; color: brightColor }
         GradientStop { position: 1.0; color: midColor }
       }
       Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
-        anchors.centerIn: parent;
-        anchors.fill: parent;
+        anchors.horizontalCenter: parent.horizontalCenter;
+        y: 0;
+        width: parent.width;
+        height: parent.height;
         Text {
           id: upperFlapText;
           z: 1;
@@ -69,12 +74,13 @@ Item {
           font.family: flapFontFamily;
           font.pixelSize: flapFontSize;
           text: flapText;
-          y: 0;
+          y: parent.height - (flapFontSize / 2.5);
           horizontalAlignment: Text.AlignHCenter;
+          verticalAlignment: Text.AlignTop;
           clip: true;
           elide: Text.ElideRight;
           width: parent.width;
-          height: flapHeight;
+          height: parent.height - y;
         }
       }
     }
@@ -112,7 +118,8 @@ Item {
     }
     Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
       anchors.centerIn: parent;
-      anchors.fill: parent;
+      width: parent.width;
+      height: parent.height;
       Text {
         id: upperFlapPlaceholderText;
         z: 1;
@@ -120,14 +127,24 @@ Item {
         font.family: flapFontFamily;
         font.pixelSize: flapFontSize;
         text: flapText;
-        y: 0;
+        y: parent.height - (flapFontSize / 2.5);
         horizontalAlignment: Text.AlignHCenter;
+        verticalAlignment: Text.AlignTop;
         clip: true;
         elide: Text.ElideRight;
         width: parent.width;
-        height: flapHeight;
+        height: parent.height - y;
       }
     }
+  }
+
+  Rectangle {
+    id: flapSeparator;
+    z: 15;
+    width: flapWidth;
+    y: flapHeight;
+    height: 2;
+    color: backgroundColor;
   }
 
   Flipable {
@@ -142,14 +159,16 @@ Item {
 
     front: Rectangle {
       id: lowerFlapRect;
-      anchors.fill: parent;
+      width: parent.width;
+      height: parent.height;
       gradient: Gradient {
         GradientStop { position: 0.0; color: midColor }
         GradientStop { position: 1.0; color: darkColor }
       }
       Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
         anchors.centerIn: parent;
-        anchors.fill: parent;
+        width: flapWidth;
+        height: flapHeight;
         Text {
           id: lowerFlapText;
           z: 1;
@@ -157,12 +176,12 @@ Item {
           font.family: flapFontFamily;
           font.pixelSize: flapFontSize;
           text: flapText;
-          y: -parent.height - 2;
+          y: -(flapFontSize / 2.5) - 2;
           horizontalAlignment: Text.AlignHCenter;
           clip: false;
           elide: Text.ElideRight;
-          width: parent.width;
-          height: flapHeight;
+          width: flapWidth;
+          height: flapHeight - y;
         }
       }
     }
@@ -212,12 +231,12 @@ Item {
         font.family: flapFontFamily;
         font.pixelSize: flapFontSize;
         text: flapText;
-        y: -parent.height - 2;
+        y: -(flapFontSize / 2.5) - 2;
         horizontalAlignment: Text.AlignHCenter;
         clip: false;
         elide: Text.ElideRight;
         width: parent.width;
-        height: flapHeight;
+        height: flapHeight - y;
       }
     }
   }
@@ -229,7 +248,6 @@ Item {
     triggeredOnStart: true;
     repeat: true;
     onTriggered: {
-      console.log("TRIGGERED")
       switch(status) {
         //Three steps
       case 0:
@@ -296,7 +314,7 @@ Item {
   }
 
   /**
-    * @function rotate
+    * @function flip
     * @description prepare the character sequence for the flapHandler, then start its state machine to flip the flap
     * @param charSequnece: can be both a string or a string array, and is the sequence of strings (or character) the flap can display
     * @param newChar: the new character the flap will display
@@ -304,7 +322,7 @@ Item {
     * @return void
     **/
 
-  function rotate(charSequence, newChar, force) {
+  function flip(charSequence, newChar, force) {
 
     var charSeq = [];
     charSeq = charSeq.concat(charSequence);
