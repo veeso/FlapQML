@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Flap.qml</file>
+    </qresource>
+</RCC>
