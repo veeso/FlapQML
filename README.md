@@ -118,4 +118,4 @@ Licensed under the GNU GPLv3 (the "License"); you may not use this file except i
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
-You can read the entire license [HERE](./LICENSE.txt)
+You can read the entire license [HERE](./LICENSE)
