@@ -53,34 +53,54 @@ Item {
 
     property bool flipped: false;
     property int angle: 0;
-    front: Rectangle {
-      id: upperFlapRect;
-      y: 0;
-      width: parent.width;
-      height: parent.height;
-      gradient: Gradient {
-        GradientStop { position: 0.0; color: brightColor }
-        GradientStop { position: 1.0; color: midColor }
-      }
-      Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
-        anchors.horizontalCenter: parent.horizontalCenter;
+    front: Item {
+      anchors.fill: parent;
+      Rectangle {
+        id: upperFlapRect;
         y: 0;
         width: parent.width;
         height: parent.height;
-        Text {
-          id: upperFlapText;
-          z: 1;
-          color: textColor;
-          font.family: flapFontFamily;
-          font.pixelSize: flapFontSize;
-          text: flapText;
-          y: parent.height - (flapFontSize / 2.5);
-          horizontalAlignment: Text.AlignHCenter;
-          verticalAlignment: Text.AlignTop;
-          clip: true;
-          elide: Text.ElideRight;
+        gradient: Gradient {
+          GradientStop { position: 0.0; color: brightColor }
+          GradientStop { position: 1.0; color: midColor }
+        }
+        Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
+          anchors.horizontalCenter: parent.horizontalCenter;
+          y: 0;
           width: parent.width;
-          height: parent.height - y;
+          height: parent.height;
+          Text {
+            id: upperFlapText;
+            z: 1;
+            color: textColor;
+            font.family: flapFontFamily;
+            font.pixelSize: flapFontSize;
+            text: flapText;
+            y: parent.height - (flapFontSize / 2);
+            horizontalAlignment: Text.AlignHCenter;
+            verticalAlignment: Text.AlignTop;
+            clip: true;
+            elide: Text.ElideRight;
+            width: parent.width;
+            height: parent.height - y;
+          }
+        }
+      }
+      Rectangle { //Shadow
+        id: upperFlapShadow;
+        color: "#0c0c0c";
+        opacity: 0;
+        anchors.fill: parent;
+        visible: upperFlap.flipped;
+      }
+      SequentialAnimation {
+        running: upperFlap.flipped;
+        NumberAnimation {
+          target: upperFlapShadow;
+          property: "opacity";
+          from: 0.0;
+          to: 0.5;
+          duration: flapAnimDuration;
         }
       }
     }
@@ -127,7 +147,7 @@ Item {
         font.family: flapFontFamily;
         font.pixelSize: flapFontSize;
         text: flapText;
-        y: parent.height - (flapFontSize / 2.5);
+        y: parent.height - (flapFontSize / 2);
         horizontalAlignment: Text.AlignHCenter;
         verticalAlignment: Text.AlignTop;
         clip: true;
@@ -157,31 +177,34 @@ Item {
     property bool flipped: false;
     property int angle: 0;
 
-    front: Rectangle {
-      id: lowerFlapRect;
-      width: parent.width;
-      height: parent.height;
-      gradient: Gradient {
-        GradientStop { position: 0.0; color: midColor }
-        GradientStop { position: 1.0; color: darkColor }
-      }
-      Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
-        anchors.centerIn: parent;
-        width: flapWidth;
-        height: flapHeight;
-        Text {
-          id: lowerFlapText;
-          z: 1;
-          color: textColor;
-          font.family: flapFontFamily;
-          font.pixelSize: flapFontSize;
-          text: flapText;
-          y: -(flapFontSize / 2.5) - 2;
-          horizontalAlignment: Text.AlignHCenter;
-          clip: false;
-          elide: Text.ElideRight;
+    front: Item {
+      anchors.fill: parent;
+      Rectangle {
+        id: lowerFlapRect;
+        width: parent.width;
+        height: parent.height;
+        gradient: Gradient {
+          GradientStop { position: 0.0; color: midColor }
+          GradientStop { position: 1.0; color: darkColor }
+        }
+        Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
+          anchors.centerIn: parent;
           width: flapWidth;
-          height: flapHeight - y;
+          height: flapHeight;
+          Text {
+            id: lowerFlapText;
+            z: 1;
+            color: textColor;
+            font.family: flapFontFamily;
+            font.pixelSize: flapFontSize;
+            text: flapText;
+            y: -(flapFontSize / 2) - 2;
+            horizontalAlignment: Text.AlignHCenter;
+            clip: false;
+            elide: Text.ElideRight;
+            width: flapWidth;
+            height: flapHeight - y;
+          }
         }
       }
     }
@@ -231,12 +254,29 @@ Item {
         font.family: flapFontFamily;
         font.pixelSize: flapFontSize;
         text: flapText;
-        y: -(flapFontSize / 2.5) - 2;
+        y: -(flapFontSize / 2) - 2;
         horizontalAlignment: Text.AlignHCenter;
         clip: false;
         elide: Text.ElideRight;
         width: parent.width;
         height: flapHeight - y;
+      }
+    }
+    Rectangle { //Shadow
+      id: lowerFlapShadow;
+      color: "#0c0c0c";
+      opacity: 0.0;
+      anchors.fill: parent;
+      visible: lowerFlap.flipped;
+    }
+    SequentialAnimation {
+      running: lowerFlap.flipped;
+      NumberAnimation {
+        target: lowerFlapShadow;
+        property: "opacity";
+        from: 0.0;
+        to: 1.0;
+        duration: flapAnimDuration;
       }
     }
   }

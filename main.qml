@@ -31,7 +31,7 @@ Window {
   property string charSequence: " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#!.:";
   property int currPtr: 0;
 
-  property int animDuration: 60;
+  property int animDuration: 120;
   color: "#0c0c0c"
 
   property var flapboard: [flap1, flap2, flap3, flap4, flap5, flap6, flap7, flap8, flap9, flap10, flap11, flap12, flap13, flap14, flap15, flap16, flap17, flap18, flap19, flap20, flap21, flap22, flap23, flap24];

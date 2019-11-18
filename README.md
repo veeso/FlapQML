@@ -3,7 +3,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![HitCount](http://hits.dwyl.io/ChristianVisintin/FlapQML.svg)](http://hits.dwyl.io/ChristianVisintin/FlapQML) [![Stars](https://img.shields.io/github/stars/ChristianVisintin/FlapQML.svg)](https://github.com/ChristianVisintin/FlapQML) [![Issues](https://img.shields.io/github/issues/ChristianVisintin/FlapQML.svg)](https://github.com/ChristianVisintin/FlapQML/issues)
 
 Developed by *Christian Visintin*  
-Version **2.0.0** ~ 17.11.2019
+Version **2.1.0** ~ 18.11.2019
 
 <p align="center">
   <img src="https://github.com/ChristianVisintin/FlapQML/blob/master/img/flapqml.png?raw=true" alt="FlapQML logo"/>
@@ -97,6 +97,11 @@ This repository comes with an example, which is basically a 8x3 flapboard. To se
 ---
 
 ## Changelog
+
+### Version 2.1.0 (18/11/2019)
+
+- Added shadow effect to flaps.
+- Fixed text positon
 
 ### Version 2.0.0 (17/11/2019)
 
