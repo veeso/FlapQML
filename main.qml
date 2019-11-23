@@ -45,8 +45,9 @@ Window {
       width: 128;
       text: "Flapboard"
       onClicked: {
-        flapboardContainer.visible = true;
-        clockContainer.visible = false;
+        flapboardExample.visible = true;
+        clockExample.visible = false;
+        calendarExample.visible = false;
       }
     }
     Button {
@@ -56,8 +57,21 @@ Window {
       width: 128;
       text: "Clock"
       onClicked: {
-        flapboardContainer.visible = false;
-        clockContainer.visible = true;
+        flapboardExample.visible = false;
+        clockExample.visible = true;
+        calendarExample.visible = false;
+      }
+    }
+    Button {
+      x: 304;
+      y: 8;
+      height: 32;
+      width: 128;
+      text: "Calendar"
+      onClicked: {
+        flapboardExample.visible = false;
+        clockExample.visible = false;
+        calendarExample.visible = true;
       }
     }
   }
@@ -69,11 +83,15 @@ Window {
     x: 0;
     y: 48;
     Examples.Flapboard {
-      id: flapboardContainer;
-      visible: false;
+      id: flapboardExample;
+      visible: true;
     }
     Examples.Clock {
-      id: clockContainer;
+      id: clockExample;
+      visible: false;
+    }
+    Examples.Calendar {
+      id: calendarExample;
       visible: false;
     }
   }
