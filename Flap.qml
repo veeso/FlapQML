@@ -36,10 +36,11 @@ Item {
   property int flapTextPosition: textPosition_Middle;
   property string flapFontFamily: "Helvetica";
   property string flapText: " ";
+  property bool flapPlain: true;
   property int flapAnimDuration: 80;
   property int backupAnimDuration: flapAnimDuration;
   property int intervalTimeout: flapAnimDuration;
-  property string brightColor: "#303030";
+  property string brightColor: "#202020";
   property string midColor: "#101010";
   property string darkColor: "#000000";
   property string textColor: "white";
@@ -302,6 +303,31 @@ Item {
     }
   }
 
+  ListModel {
+    id: subFlaps;
+  }
+
+  //Previous flaps effect
+  ListView {
+    id: flapSmoothEffect;
+    visible: !flapPlain;
+    width: flapWidth;
+    height: 0;
+    x: 0;
+    z: 100;
+    y: 0;
+    model: subFlaps
+    delegate: Rectangle {
+      width: flapWidth;
+      height: subFlapHeight;
+      gradient: Gradient {
+        GradientStop { position: 0.0; color: midColor }
+        GradientStop { position: 0.2; color: midColor }
+        GradientStop { position: 1.0; color: darkColor }
+      }
+    }
+  }
+
   Timer {
     id: flipHandler;
     running: status >= 0;
@@ -382,8 +408,34 @@ Item {
    */
 
   function initializeFlap() {
-    //Calculate section height
-    sectionHeight = (flapHeight / 2) - 1; //Flap height / 2 - 1 pixel for each section because of the flap separator
+    //Calculate section height; which depends on plain mode ON/OFF
+    if (flapPlain) {
+      sectionHeight = (flapHeight / 2) - 1; //Flap height / 2 - 1 pixel for each section because of the flap separator
+    } else {
+      //Clear first
+      subFlaps.clear();
+      sectionHeight = ((flapHeight / 5) * 2) - 1; //Preserve 1 / 3 of the lower flap
+      flapSmoothEffect.y = sectionHeight * 2;
+      flapSmoothEffect.height = flapHeight / 5;
+      //Each sub flap must have a 'subFlapHeight', so start with calculating it, for n flaps about 1/10 of flaps are visible underneath
+      //Also the first's height is about the double of the last's
+      //Between each subflap, there is about 25% of reduction of height
+      var amountOfSubFlaps = (flapSequence.length / 10);
+      var subFlapHeight = flapSmoothEffect.height / 3;
+      var currentHeight = 0;
+      //flapSmoothEffect.subFlapsAmount = amountOfSubFlaps;
+      //Populate sub flaps
+      while (currentHeight < flapSmoothEffect.height) {
+        if (currentHeight + subFlapHeight > flapSmoothEffect.height) {
+          subFlapHeight = flapSmoothEffect.height - currentHeight;
+        }
+        subFlaps.append({"subFlapHeight": subFlapHeight});
+        currentHeight += subFlapHeight;
+        subFlapHeight = (subFlapHeight / 4) * 3;
+      }
+      flapSmoothEffect.forceLayout();
+    }
+
     //Calculate posisition based on alignment
     switch (flapTextPosition) {
     case textPosition_Middle:
@@ -426,7 +478,6 @@ Item {
       lowerFlapPlaceholderText.height = sectionHeight;
       break;
     }
-
   }
 
   /**
