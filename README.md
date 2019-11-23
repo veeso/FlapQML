@@ -27,6 +27,9 @@ Version **2.2.0** ~ 23.11.2019
     - [Version 2.0.0 (17/11/2019)](#version-200-17112019)
     - [Version 1.0.0](#version-100)
   - [License](#license)
+  - [Gallery](#gallery)
+    - [Clock](#clock)
+    - [Calendar](#calendar)
 
 ---
 
@@ -85,6 +88,7 @@ These are the properties supported by the Flap component.
 - **flapWidth**: Total width of the Flap component in pixel
 - **flapHeight**: Height of a Flap.
 - **flapSequence**: The sequence of characters or string the flap has. It should be used as an array of strings. If a string is provided it will be split into an array of characters.
+- **flapPlain**: If set to false, the "previous" flaps will be visible as shown in the image ["Clock"](#clock) in the gallery. When this option is set to false, the flap height will be lower, in order to reserve space for the previous flaps.
 - **flapTextPosition**: Describes whether the text must be placed on the upper flap section, on the lower flap section or as usual in the middle. (Default: Middle)
   - The usable values are: *textPosition_Top*, *textPosition_Middle*, *textPosition_Bottom*
 - **flapFontSize**: Pixel size of the Flap text. Consider to set it about flapHeight * 1.4
@@ -120,7 +124,11 @@ If text is not in the flap sequence false is returned, otherwise it returns true
 
 ### Example
 
-This repository comes with an example, which is basically a 8x3 flapboard. To see how it works open the project in QtCreator.
+This repository comes with an example applications, which contains 3 pratical examples:
+
+- Flapbord: basically a 8x3 flapboard
+- Clock: a split-flap clock inspired by Solari Cifra 3
+- Calendar: a split-flap clock inspired by Solari Dator 60
 
 ---
 
@@ -133,6 +141,7 @@ This repository comes with an example, which is basically a 8x3 flapboard. To se
 - Added flapTextPosition property
 - setFlap() function
 - FlapHeight now represents the entire Flap height
+- Added flapPlain property (and effect)
 
 ### Version 2.1.0 (18/11/2019)
 
@@ -160,3 +169,15 @@ Licensed under the GNU GPLv3 (the "License"); you may not use this file except i
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
 You can read the entire license [HERE](./LICENSE)
+
+---
+
+## Gallery
+
+### Clock
+
+![ClockExample](img/Clock.png)
+
+### Calendar
+
+![Calendar](img/Calendar.png)
