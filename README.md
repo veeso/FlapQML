@@ -54,6 +54,7 @@ id: myFlap;
 flapWidth: 128; //Width of the flap component
 flapHeight: 96; //Height of a single part of the flap component (so the total height the double e.g. 192)
 flapSequence: ['0','1','2','3','4','5','6','7','8','9'] //is the sequence of strings/characters the flap can display
+flapTextPosition: textPosition_Middle; //Text position in flap
 flapFontSize: 164; //Font size in pixel of the text on the flaps
 property string flapFontFamily: "Helvetica"; //Family font of the text on the flap
 property string flapText: " "; //Text displayed by default on the flap
@@ -81,6 +82,8 @@ These are the properties supported by the Flap component.
 - **flapWidth**: Total width of the Flap component in pixel
 - **flapHeight**: Height of a flap section of the Flap component. The total Height of the flap component will be flapHeight * 2.
 - **flapSequence**: The sequence of characters or string the flap has. It should be used as an array of strings. If a string is provided it will be split into an array of characters.
+- **flapTextPosition**: Describes whether the text must be placed on the upper flap section, on the lower flap section or as usual in the middle. (Default: Middle)
+  - The usable values are: *textPosition_Top*, *textPosition_Middle*, *textPosition_Bottom*
 - **flapFontSize**: Pixel size of the Flap text. Consider to set it about flapHeight * 1.4
 - **flapFontFamily**: the font family used by the Flap component. The original font used by the Solari board is very similiar to Helvetica, so I suggest you going with that.
 - **flapText**: The current flap text. It changes when you flip the component.
@@ -113,6 +116,7 @@ This repository comes with an example, which is basically a 8x3 flapboard. To se
 
 - flapSequence instead of charSequence
 - flapSequence is now a Flap property and no more a parameter of flip function.
+- Added flapTextPosition property
 
 ### Version 2.1.0 (18/11/2019)
 

@@ -24,10 +24,16 @@ import QtQuick 2.0
 Item {
 
   id: flap;
+  //Enums
+  readonly property int textPosition_Top: 1;
+  readonly property int textPosition_Middle: 2;
+  readonly property int textPosition_Bottom: 3;
+  //Flap Properties
   property int flapWidth: 128;
   property int flapHeight: 98;
   property var flapSequence: [];
   property int flapFontSize: 182;
+  property int flapTextPosition: textPosition_Middle;
   property string flapFontFamily: "Helvetica";
   property string flapText: " ";
   property int flapAnimDuration: 80;
@@ -40,6 +46,10 @@ Item {
   property string backgroundColor: "#0c0c0c";
 
   property int status: -1;
+
+  onFlapTextPositionChanged: {
+    initializeFlap();
+  }
 
   property variant execSequence: [];
   width: flapWidth;
@@ -66,6 +76,7 @@ Item {
           GradientStop { position: 1.0; color: midColor }
         }
         Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
+          id: upperFlapTextContainer;
           anchors.horizontalCenter: parent.horizontalCenter;
           y: 0;
           width: parent.width;
@@ -84,6 +95,7 @@ Item {
             elide: Text.ElideRight;
             width: parent.width;
             height: parent.height - y;
+            fontSizeMode: Text.HorizontalFit ;
           }
         }
       }
@@ -138,6 +150,7 @@ Item {
       GradientStop { position: 1.0; color: midColor }
     }
     Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
+      id: upperFlapPlaceholderTextContainer;
       anchors.centerIn: parent;
       width: parent.width;
       height: parent.height;
@@ -155,6 +168,7 @@ Item {
         elide: Text.ElideRight;
         width: parent.width;
         height: parent.height - y;
+        fontSizeMode: Text.HorizontalFit ;
       }
     }
   }
@@ -189,6 +203,7 @@ Item {
           GradientStop { position: 1.0; color: darkColor }
         }
         Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
+          id: lowerFlapTextContainer;
           anchors.centerIn: parent;
           width: flapWidth;
           height: flapHeight;
@@ -205,6 +220,7 @@ Item {
             elide: Text.ElideRight;
             width: flapWidth;
             height: flapHeight - y;
+            fontSizeMode: Text.HorizontalFit;
           }
         }
       }
@@ -246,6 +262,7 @@ Item {
       GradientStop { position: 1.0; color: darkColor }
     }
     Item { //This item, seems useless, but trust me, it's the only way to solve the flap paradox
+      id: lowerFlapPlaceholderTextContainer;
       anchors.centerIn: parent;
       anchors.fill: parent;
       Text {
@@ -261,6 +278,7 @@ Item {
         elide: Text.ElideRight;
         width: parent.width;
         height: flapHeight - y;
+        fontSizeMode: Text.HorizontalFit;
       }
     }
     Rectangle { //Shadow
@@ -352,6 +370,59 @@ Item {
         break;
       }
     }
+  }
+
+  //Functions
+
+  /**
+    @function initializeFlap
+    @description initialize flap position based on flap attributes
+   */
+
+  function initializeFlap() {
+    //Calculate posisition based on alignment
+    switch (flapTextPosition) {
+    case textPosition_Middle:
+      //All texts are visible and text must be at center of flap
+      upperFlapText.visible = true;
+      upperFlapText.y = flapHeight - (flapFontSize / 2);
+      upperFlapText.height = flapHeight - upperFlapText.y;
+      upperFlapPlaceholderText.visible = true;
+      upperFlapPlaceholderText.y = flapHeight - (flapFontSize / 2);
+      upperFlapPlaceholderText.height = flapHeight - upperFlapPlaceholderText.y;
+      lowerFlapText.visible = true;
+      lowerFlapText.y = -(flapFontSize / 2) - 2;
+      lowerFlapText.height = flapHeight - lowerFlapText.y;
+      lowerFlapPlaceholderText.visible = true;
+      lowerFlapPlaceholderText.y = -(flapFontSize / 2) - 2;
+      lowerFlapPlaceholderText.height = flapHeight - lowerFlapPlaceholderText.y;
+      break;
+    case textPosition_Top:
+      //Only upper flaps text visible and text must be at center of upper flap
+      upperFlapText.visible = true;
+      upperFlapText.y = 0;
+      upperFlapText.height = flapHeight;
+      upperFlapPlaceholderText.visible = true;
+      upperFlapPlaceholderText.y = 0;
+      upperFlapPlaceholderText.height = flapHeight;
+      //Set lower flaps text invisible
+      lowerFlapText.visible = false;
+      lowerFlapPlaceholderText.visible = false;
+      break;
+
+    case textPosition_Bottom:
+      //Only lower flaps text visible and text must be at center of upper flap
+      upperFlapText.visible = false;
+      upperFlapPlaceholderText.visible = false;
+      lowerFlapText.visible = true;
+      lowerFlapText.y = 0;
+      lowerFlapText.height = flapHeight;
+      lowerFlapPlaceholderText.visible = true;
+      lowerFlapPlaceholderText.y = 0;
+      lowerFlapPlaceholderText.height = flapHeight;
+      break;
+    }
+
   }
 
   /**

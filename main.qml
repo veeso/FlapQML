@@ -119,6 +119,8 @@ Window {
         id: flap9;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Top;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#c8102e";
         midColor: "#b52121";
@@ -128,6 +130,8 @@ Window {
         id: flap10;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Top;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#ff8200";
         midColor: "#db7100";
@@ -137,6 +141,8 @@ Window {
         id: flap11;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Top;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#fce300";
         midColor: "#d9c300";
@@ -146,6 +152,8 @@ Window {
         id: flap12;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Top;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#f8a3bc";
         midColor: "#de90a7";
@@ -155,6 +163,8 @@ Window {
         id: flap13;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Top;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#0072ce";
         midColor: "#0064b5";
@@ -164,6 +174,8 @@ Window {
         id: flap14;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Top;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#68c24a";
         midColor: "#5aa840";
@@ -173,6 +185,8 @@ Window {
         id: flap15;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Top;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#84754e";
         midColor: "#736544";
@@ -182,6 +196,8 @@ Window {
         id: flap16;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Top;
+        flapFontSize: 96;
         flapText: " "
       }
     }
@@ -191,6 +207,8 @@ Window {
         id: flap17;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Bottom;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#c8102e";
         midColor: "#b52121";
@@ -200,6 +218,8 @@ Window {
         id: flap18;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Bottom;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#ff8200";
         midColor: "#db7100";
@@ -209,6 +229,8 @@ Window {
         id: flap19;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Bottom;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#fce300";
         midColor: "#d9c300";
@@ -218,6 +240,8 @@ Window {
         id: flap20;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Bottom;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#f8a3bc";
         midColor: "#de90a7";
@@ -227,6 +251,8 @@ Window {
         id: flap21;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Bottom;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#0072ce";
         midColor: "#0064b5";
@@ -236,6 +262,8 @@ Window {
         id: flap22;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Bottom;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#68c24a";
         midColor: "#5aa840";
@@ -245,6 +273,8 @@ Window {
         id: flap23;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Bottom;
+        flapFontSize: 96;
         flapText: " "
         brightColor: "#84754e";
         midColor: "#736544";
@@ -254,6 +284,8 @@ Window {
         id: flap24;
         flapAnimDuration: animDuration;
         flapSequence: root.flapSequence;
+        flapTextPosition: textPosition_Bottom;
+        flapFontSize: 96;
         flapText: " "
       }
     }
