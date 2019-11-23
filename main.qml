@@ -299,7 +299,7 @@ Window {
     color: "#0c0c0c";
     Button {
       id: button;
-      x: parent.width / 4;
+      x: 100;
       width: 128;
       height: 32;
       onClicked: {
@@ -310,6 +310,20 @@ Window {
         }
       }
       text: "Flip";
+    }
+    Button {
+      id: button2;
+      x: 300;
+      width: 128;
+      height: 32;
+      onClicked: {
+        var characters = flaptext.text.split("");
+        for (var i = 0; i < flapboard.length && i < characters.length; i++) {
+          var flapchar = characters[i];
+          flapboard[i].setFlap(flapchar);
+        }
+      }
+      text: "Set";
     }
     Rectangle {
       color: "white";
@@ -328,10 +342,5 @@ Window {
         horizontalAlignment: Text.AlignHCenter;
       }
     }
-
-
   }
-
-
-
 }

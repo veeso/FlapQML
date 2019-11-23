@@ -19,6 +19,7 @@ Version **2.2.0** ~ 23.11.2019
     - [Documentation](#documentation)
       - [Flap](#flap)
       - [flip](#flip)
+      - [setFlap](#setflap)
     - [Example](#example)
   - [Changelog](#changelog)
     - [Version 2.2.0 (23/11/2019)](#version-220-23112019)
@@ -54,7 +55,7 @@ Flap {
 
 id: myFlap;
 flapWidth: 128; //Width of the flap component
-flapHeight: 96; //Height of a single part of the flap component (so the total height the double e.g. 192)
+flapHeight: 196; //Height of the flap component
 flapSequence: ['0','1','2','3','4','5','6','7','8','9'] //is the sequence of strings/characters the flap can display
 flapTextPosition: textPosition_Middle; //Text position in flap
 flapFontSize: 164; //Font size in pixel of the text on the flaps
@@ -82,7 +83,7 @@ These are the properties supported by the Flap component.
 #### Flap
 
 - **flapWidth**: Total width of the Flap component in pixel
-- **flapHeight**: Height of a flap section of the Flap component. The total Height of the flap component will be flapHeight * 2.
+- **flapHeight**: Height of a Flap.
 - **flapSequence**: The sequence of characters or string the flap has. It should be used as an array of strings. If a string is provided it will be split into an array of characters.
 - **flapTextPosition**: Describes whether the text must be placed on the upper flap section, on the lower flap section or as usual in the middle. (Default: Middle)
   - The usable values are: *textPosition_Top*, *textPosition_Middle*, *textPosition_Bottom*
@@ -100,11 +101,22 @@ These are the properties supported by the Flap component.
 The flip function allows to flip the flap through its char sequence until the specified character is found. If force is true, if the current character is the same of the new character, a full rotation will be performed through the entire char sequence.
 
 ```qml
-myFlap.flip(newChar, force)
+flip(newChar, force)
 ```
 
 - **newChar**: the new character the flap will display
 - **force**: normally if the currently displayed character is the same of newChar the flap won't move. If set to true will force the flap to flip anyway
+
+#### setFlap
+
+The setFlap functions force the text of a flap without animating the flap itself. The provided string MUST be in the flapSequence.
+
+```qml
+setFlap(text)
+```
+
+- **text**: the new displayed text
+If text is not in the flap sequence false is returned, otherwise it returns true.
 
 ### Example
 
@@ -119,6 +131,8 @@ This repository comes with an example, which is basically a 8x3 flapboard. To se
 - flapSequence instead of charSequence
 - flapSequence is now a Flap property and no more a parameter of flip function.
 - Added flapTextPosition property
+- setFlap() function
+- FlapHeight now represents the entire Flap height
 
 ### Version 2.1.0 (18/11/2019)
 

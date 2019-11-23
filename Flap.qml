@@ -30,7 +30,7 @@ Item {
   readonly property int textPosition_Bottom: 3;
   //Flap Properties
   property int flapWidth: 128;
-  property int flapHeight: 98;
+  property int flapHeight: 196;
   property var flapSequence: [];
   property int flapFontSize: 182;
   property int flapTextPosition: textPosition_Middle;
@@ -45,6 +45,8 @@ Item {
   property string textColor: "white";
   property string backgroundColor: "#0c0c0c";
 
+  property int sectionHeight: 96;
+
   property int status: -1;
 
   onFlapTextPositionChanged: {
@@ -53,14 +55,14 @@ Item {
 
   property variant execSequence: [];
   width: flapWidth;
-  height: (flapHeight * 2) + 1;
+  height: flapHeight;
 
   Flipable {
     id: upperFlap;
     z: 10;
     y: 0;
     width: flapWidth;
-    height: flapHeight;
+    height: sectionHeight;
 
     property bool flipped: false;
     property int angle: 0;
@@ -123,7 +125,7 @@ Item {
     transform: Rotation {
       id: upperRotation
       origin.x: 0;
-      origin.y: flapHeight;
+      origin.y: sectionHeight;
       axis.x: 1; axis.y: 0; axis.z: 0     // set axis.y to 1 to rotate around y-axis
       angle: upperFlap.angle;    // the default angle
     }
@@ -144,7 +146,7 @@ Item {
     z: 9;
     y: 0;
     width: flapWidth;
-    height: flapHeight;
+    height: sectionHeight;
     gradient: Gradient {
       GradientStop { position: 0.0; color: brightColor }
       GradientStop { position: 1.0; color: midColor }
@@ -177,7 +179,7 @@ Item {
     id: flapSeparator;
     z: 15;
     width: flapWidth;
-    y: flapHeight;
+    y: sectionHeight;
     height: 2;
     color: backgroundColor;
   }
@@ -185,9 +187,9 @@ Item {
   Flipable {
     id: lowerFlap;
     z: 6;
-    y: flapHeight + 2;
+    y: sectionHeight + 2;
     width: flapWidth;
-    height: flapHeight;
+    height: sectionHeight;
 
     property bool flipped: false;
     property int angle: 0;
@@ -206,7 +208,7 @@ Item {
           id: lowerFlapTextContainer;
           anchors.centerIn: parent;
           width: flapWidth;
-          height: flapHeight;
+          height: sectionHeight;
           Text {
             id: lowerFlapText;
             z: 1;
@@ -219,7 +221,7 @@ Item {
             clip: false;
             elide: Text.ElideRight;
             width: flapWidth;
-            height: flapHeight - y;
+            height: sectionHeight - y;
             fontSizeMode: Text.HorizontalFit;
           }
         }
@@ -254,9 +256,9 @@ Item {
   Rectangle {
     id: lowerFlapPlaceholder;
     z: 5;
-    y: flapHeight + 2;
+    y: sectionHeight + 2;
     width: flapWidth;
-    height: flapHeight;
+    height: sectionHeight;
     gradient: Gradient {
       GradientStop { position: 0.0; color: midColor }
       GradientStop { position: 1.0; color: darkColor }
@@ -277,7 +279,7 @@ Item {
         clip: false;
         elide: Text.ElideRight;
         width: parent.width;
-        height: flapHeight - y;
+        height: sectionHeight - y;
         fontSizeMode: Text.HorizontalFit;
       }
     }
@@ -380,31 +382,33 @@ Item {
    */
 
   function initializeFlap() {
+    //Calculate section height
+    sectionHeight = (flapHeight / 2) - 1; //Flap height / 2 - 1 pixel for each section because of the flap separator
     //Calculate posisition based on alignment
     switch (flapTextPosition) {
     case textPosition_Middle:
       //All texts are visible and text must be at center of flap
       upperFlapText.visible = true;
-      upperFlapText.y = flapHeight - (flapFontSize / 2);
-      upperFlapText.height = flapHeight - upperFlapText.y;
+      upperFlapText.y = sectionHeight - (flapFontSize / 2);
+      upperFlapText.height = sectionHeight - upperFlapText.y;
       upperFlapPlaceholderText.visible = true;
-      upperFlapPlaceholderText.y = flapHeight - (flapFontSize / 2);
-      upperFlapPlaceholderText.height = flapHeight - upperFlapPlaceholderText.y;
+      upperFlapPlaceholderText.y = sectionHeight - (flapFontSize / 2);
+      upperFlapPlaceholderText.height = sectionHeight - upperFlapPlaceholderText.y;
       lowerFlapText.visible = true;
       lowerFlapText.y = -(flapFontSize / 2) - 2;
-      lowerFlapText.height = flapHeight - lowerFlapText.y;
+      lowerFlapText.height = sectionHeight - lowerFlapText.y;
       lowerFlapPlaceholderText.visible = true;
       lowerFlapPlaceholderText.y = -(flapFontSize / 2) - 2;
-      lowerFlapPlaceholderText.height = flapHeight - lowerFlapPlaceholderText.y;
+      lowerFlapPlaceholderText.height = sectionHeight - lowerFlapPlaceholderText.y;
       break;
     case textPosition_Top:
       //Only upper flaps text visible and text must be at center of upper flap
       upperFlapText.visible = true;
       upperFlapText.y = 0;
-      upperFlapText.height = flapHeight;
+      upperFlapText.height = sectionHeight;
       upperFlapPlaceholderText.visible = true;
       upperFlapPlaceholderText.y = 0;
-      upperFlapPlaceholderText.height = flapHeight;
+      upperFlapPlaceholderText.height = sectionHeight;
       //Set lower flaps text invisible
       lowerFlapText.visible = false;
       lowerFlapPlaceholderText.visible = false;
@@ -416,10 +420,10 @@ Item {
       upperFlapPlaceholderText.visible = false;
       lowerFlapText.visible = true;
       lowerFlapText.y = 0;
-      lowerFlapText.height = flapHeight;
+      lowerFlapText.height = sectionHeight;
       lowerFlapPlaceholderText.visible = true;
       lowerFlapPlaceholderText.y = 0;
-      lowerFlapPlaceholderText.height = flapHeight;
+      lowerFlapPlaceholderText.height = sectionHeight;
       break;
     }
 
@@ -479,6 +483,21 @@ Item {
     if(status === -1)
       status = 0;
 
+  }
+
+  /**
+    @function setFlap
+    @description force the text of flap to text; if text is not in flapSequence, then nothing happens
+    @param string text
+    @returns bool
+  */
+
+  function setFlap(text) {
+    if (flap.flapSequence.indexOf(text) === -1) {
+      return false;
+    }
+    flapText = text;
+    return true;
   }
 
 }
