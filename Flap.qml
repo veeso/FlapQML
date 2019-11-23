@@ -26,6 +26,7 @@ Item {
   id: flap;
   property int flapWidth: 128;
   property int flapHeight: 98;
+  property var flapSequence: [];
   property int flapFontSize: 182;
   property string flapFontFamily: "Helvetica";
   property string flapText: " ";
@@ -356,21 +357,20 @@ Item {
   /**
     * @function flip
     * @description prepare the character sequence for the flapHandler, then start its state machine to flip the flap
-    * @param charSequnece: can be both a string or a string array, and is the sequence of strings (or character) the flap can display
     * @param newChar: the new character the flap will display
     * @param force: normally if the currently displayed character is the same of newChar the flap won't move. If set to true will force the flap to flip anyway
     * @return void
     **/
 
-  function flip(charSequence, newChar, force) {
+  function flip(newChar, force) {
 
     var charSeq = [];
-    charSeq = charSeq.concat(charSequence);
+    charSeq = charSeq.concat(flap.flapSequence);
 
-    //If charSequence is a string, convert it to an array
-    if(typeof(charSequence) === "string") {
-      charSeq = charSequence;
-      charSeq = charSequence.split('');
+    //If flapSequence is a string, convert it to an array
+    if(typeof(flap.flapSequence) === "string") {
+      charSeq = flap.flapSequence;
+      charSeq = flap.flapSequence.split('');
     }
 
     var currentPosition = charSeq.indexOf(flapText);

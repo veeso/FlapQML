@@ -3,7 +3,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![HitCount](http://hits.dwyl.io/ChristianVisintin/FlapQML.svg)](http://hits.dwyl.io/ChristianVisintin/FlapQML) [![Stars](https://img.shields.io/github/stars/ChristianVisintin/FlapQML.svg)](https://github.com/ChristianVisintin/FlapQML) [![Issues](https://img.shields.io/github/issues/ChristianVisintin/FlapQML.svg)](https://github.com/ChristianVisintin/FlapQML/issues)
 
 Developed by *Christian Visintin*  
-Version **2.1.0** ~ 18.11.2019
+Version **2.2.0** ~ 23.11.2019
 
 <p align="center">
   <img src="https://github.com/ChristianVisintin/FlapQML/blob/master/img/flapqml.png?raw=true" alt="FlapQML logo"/>
@@ -15,8 +15,12 @@ Version **2.1.0** ~ 18.11.2019
   - [Introduction](#introduction)
   - [Implementation](#implementation)
     - [Documentation](#documentation)
+      - [Flap](#flap)
+      - [flip](#flip)
     - [Example](#example)
   - [Changelog](#changelog)
+    - [Version 2.2.0 (23/11/2019)](#version-220-23112019)
+    - [Version 2.1.0 (18/11/2019)](#version-210-18112019)
     - [Version 2.0.0 (17/11/2019)](#version-200-17112019)
     - [Version 1.0.0](#version-100)
   - [License](#license)
@@ -49,6 +53,7 @@ Flap {
 id: myFlap;
 flapWidth: 128; //Width of the flap component
 flapHeight: 96; //Height of a single part of the flap component (so the total height the double e.g. 192)
+flapSequence: ['0','1','2','3','4','5','6','7','8','9'] //is the sequence of strings/characters the flap can display
 flapFontSize: 164; //Font size in pixel of the text on the flaps
 property string flapFontFamily: "Helvetica"; //Family font of the text on the flap
 property string flapText: " "; //Text displayed by default on the flap
@@ -64,23 +69,18 @@ property string backgroundColor: "#0c0c0c"; //Background color
 Once a flap has been instantiate, to flip it, all you have to do is to call **flip** function in this way
 
 ```qml
-
-myFlap.flip(charSequence, newChar, force)
-
+myFlap.flip(newChar, force)
 ```
-
-In details:
-
-- **charSequence**: is the sequence of strings/characters the flap can display, the argument is a string array (can be a string of single character too e.g. "0123456789", the component will transform it then in ['0','1','2'...])
-- **newChar**: the new character the flap will display
-- **force**: normally if the currently displayed character is the same of newChar the flap won't move. If set to true will force the flap to flip anyway
 
 ### Documentation
 
 These are the properties supported by the Flap component.
 
+#### Flap
+
 - **flapWidth**: Total width of the Flap component in pixel
 - **flapHeight**: Height of a flap section of the Flap component. The total Height of the flap component will be flapHeight * 2.
+- **flapSequence**: The sequence of characters or string the flap has. It should be used as an array of strings. If a string is provided it will be split into an array of characters.
 - **flapFontSize**: Pixel size of the Flap text. Consider to set it about flapHeight * 1.4
 - **flapFontFamily**: the font family used by the Flap component. The original font used by the Solari board is very similiar to Helvetica, so I suggest you going with that.
 - **flapText**: The current flap text. It changes when you flip the component.
@@ -90,6 +90,17 @@ These are the properties supported by the Flap component.
 - **darkColor**: Color of the lowest part of the flip gradient.
 - **backgroundColor**: Background color applied to the little rectangle between the flaps.
 
+#### flip
+
+The flip function allows to flip the flap through its char sequence until the specified character is found. If force is true, if the current character is the same of the new character, a full rotation will be performed through the entire char sequence.
+
+```qml
+myFlap.flip(newChar, force)
+```
+
+- **newChar**: the new character the flap will display
+- **force**: normally if the currently displayed character is the same of newChar the flap won't move. If set to true will force the flap to flip anyway
+
 ### Example
 
 This repository comes with an example, which is basically a 8x3 flapboard. To see how it works open the project in QtCreator.
@@ -97,6 +108,11 @@ This repository comes with an example, which is basically a 8x3 flapboard. To se
 ---
 
 ## Changelog
+
+### Version 2.2.0 (23/11/2019)
+
+- flapSequence instead of charSequence
+- flapSequence is now a Flap property and no more a parameter of flip function.
 
 ### Version 2.1.0 (18/11/2019)
 
