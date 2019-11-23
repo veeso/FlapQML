@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Flap.qml</file>
+        <file>examples/Clock.qml</file>
+        <file>examples/Flapboard.qml</file>
     </qresource>
 </RCC>
