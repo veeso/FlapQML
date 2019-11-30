@@ -32,6 +32,7 @@ Rectangle {
         brightColor: "#c8102e";
         midColor: "#b52121";
         darkColor: "#a31d1d";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap2;
@@ -43,6 +44,7 @@ Rectangle {
         brightColor: "#ff8200";
         midColor: "#db7100";
         darkColor: "#c26400";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap3;
@@ -54,6 +56,7 @@ Rectangle {
         brightColor: "#fce300";
         midColor: "#d9c300";
         darkColor: "#c9b500";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap4;
@@ -65,6 +68,7 @@ Rectangle {
         brightColor: "#f8a3bc";
         midColor: "#de90a7";
         darkColor: "#cc8398";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap5;
@@ -76,6 +80,7 @@ Rectangle {
         brightColor: "#0072ce";
         midColor: "#0064b5";
         darkColor: "#00569c";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap6;
@@ -87,6 +92,7 @@ Rectangle {
         brightColor: "#68c24a";
         midColor: "#5aa840";
         darkColor: "#4f9438";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap7;
@@ -98,6 +104,7 @@ Rectangle {
         brightColor: "#84754e";
         midColor: "#736544";
         darkColor: "#615539";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap8;
@@ -105,7 +112,8 @@ Rectangle {
         flapSequence: flapboardBox.flapSequence;
         flapTextPosition: textPosition_Top;
         flapFontSize: 96;
-        flapText: " "
+        flapText: " ";
+        flapRadius: 4;
       }
     }
     Row {
@@ -118,6 +126,7 @@ Rectangle {
         brightColor: "#c8102e";
         midColor: "#b52121";
         darkColor: "#a31d1d";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap10;
@@ -127,6 +136,7 @@ Rectangle {
         brightColor: "#ff8200";
         midColor: "#db7100";
         darkColor: "#c26400";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap11;
@@ -136,6 +146,7 @@ Rectangle {
         brightColor: "#fce300";
         midColor: "#d9c300";
         darkColor: "#c9b500";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap12;
@@ -145,6 +156,7 @@ Rectangle {
         brightColor: "#f8a3bc";
         midColor: "#de90a7";
         darkColor: "#cc8398";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap13;
@@ -154,6 +166,7 @@ Rectangle {
         brightColor: "#0072ce";
         midColor: "#0064b5";
         darkColor: "#00569c";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap14;
@@ -163,6 +176,7 @@ Rectangle {
         brightColor: "#68c24a";
         midColor: "#5aa840";
         darkColor: "#4f9438";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap15;
@@ -172,12 +186,14 @@ Rectangle {
         brightColor: "#84754e";
         midColor: "#736544";
         darkColor: "#615539";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap16;
         flapAnimDuration: animDuration;
         flapSequence: flapboardBox.flapSequence;
-        flapText: " "
+        flapText: " ";
+        flapRadius: 4;
       }
     }
     Row {
@@ -192,6 +208,7 @@ Rectangle {
         brightColor: "#c8102e";
         midColor: "#b52121";
         darkColor: "#a31d1d";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap18;
@@ -203,6 +220,7 @@ Rectangle {
         brightColor: "#ff8200";
         midColor: "#db7100";
         darkColor: "#c26400";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap19;
@@ -214,6 +232,7 @@ Rectangle {
         brightColor: "#fce300";
         midColor: "#d9c300";
         darkColor: "#c9b500";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap20;
@@ -225,6 +244,7 @@ Rectangle {
         brightColor: "#f8a3bc";
         midColor: "#de90a7";
         darkColor: "#cc8398";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap21;
@@ -236,6 +256,7 @@ Rectangle {
         brightColor: "#0072ce";
         midColor: "#0064b5";
         darkColor: "#00569c";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap22;
@@ -247,6 +268,7 @@ Rectangle {
         brightColor: "#68c24a";
         midColor: "#5aa840";
         darkColor: "#4f9438";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap23;
@@ -258,6 +280,7 @@ Rectangle {
         brightColor: "#84754e";
         midColor: "#736544";
         darkColor: "#615539";
+        flapRadius: 4;
       }
       Main.Flap {
         id: flap24;
@@ -266,6 +289,7 @@ Rectangle {
         flapTextPosition: textPosition_Bottom;
         flapFontSize: 96;
         flapText: " "
+        flapRadius: 4;
       }
     }
   }

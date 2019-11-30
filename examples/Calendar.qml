@@ -74,6 +74,7 @@ Item {
               flapFontSize: 182;
               flapAnimDuration: animationDuration;
               flapPlain: false;
+              flapRadius: 16;
             }
             Main.Flap {
               id: flap_month;
@@ -85,6 +86,7 @@ Item {
               flapFontSize: 104;
               flapAnimDuration: animationDuration;
               flapPlain: false;
+              flapRadius: 16;
             }
           }
 
@@ -101,6 +103,7 @@ Item {
               flapTextAlignment: Text.AlignRight;
               flapPlain: false;
               flapTextPosition: textPosition_Top;
+              flapRadius: 16;
             }
           }
         }
@@ -117,6 +120,7 @@ Item {
               flapFontSize: 182;
               flapAnimDuration: animationDuration;
               flapPlain: false;
+              flapRadius: 16;
             }
             Main.Flap {
               id: flap_minutes;
@@ -127,6 +131,7 @@ Item {
               flapFontSize: 182;
               flapAnimDuration: animationDuration;
               flapPlain: false;
+              flapRadius: 16;
             }
           }
         }

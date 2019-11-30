@@ -36,6 +36,7 @@ Item {
   property int flapFontSize: 182;
   property int flapTextPosition: textPosition_Middle;
   property int flapTextAlignment: Text.AlignHCenter;
+  property int flapRadius: 0;
   property string flapFontFamily: "Helvetica";
   property string flapText: " ";
   property bool flapPlain: true;
@@ -66,16 +67,27 @@ Item {
     y: 0;
     width: flapWidth;
     height: sectionHeight;
-
     property bool flipped: false;
     property int angle: 0;
     front: Item {
       anchors.fill: parent;
       Rectangle {
+        id: upperFlapRadiusApplier;
+        gradient: Gradient {
+          GradientStop { position: 0.0; color: brightColor }
+          GradientStop { position: 0.2; color: midColor }
+        }
+        height: flapRadius;
+        anchors.bottom: upperFlapRect.bottom;
+        anchors.left: upperFlapRect.left;
+        anchors.right: upperFlapRect.right;
+      }
+      Rectangle {
         id: upperFlapRect;
         y: 0;
         width: parent.width;
         height: parent.height;
+        radius: flapRadius;
         gradient: Gradient {
           GradientStop { position: 0.0; color: brightColor }
           GradientStop { position: 1.0; color: midColor }
@@ -110,6 +122,7 @@ Item {
         opacity: 0;
         anchors.fill: parent;
         visible: upperFlap.flipped;
+        radius: flapRadius;
       }
       SequentialAnimation {
         running: upperFlap.flipped;
@@ -145,11 +158,23 @@ Item {
   }
 
   Rectangle {
+    id: upperFlapPlaceholderRadiusApplier;
+    gradient: Gradient {
+      GradientStop { position: 0.0; color: brightColor }
+      GradientStop { position: 0.2; color: midColor }
+    }
+    height: flapRadius;
+    anchors.bottom: upperFlapPlaceholder.bottom;
+    anchors.left: upperFlapPlaceholder.left;
+    anchors.right: upperFlapPlaceholder.right;
+  }
+  Rectangle {
     id: upperFlapPlaceholder;
     z: 9;
     y: 0;
     width: flapWidth;
     height: sectionHeight;
+    radius: flapRadius;
     gradient: Gradient {
       GradientStop { position: 0.0; color: brightColor }
       GradientStop { position: 1.0; color: midColor }
@@ -200,9 +225,22 @@ Item {
     front: Item {
       anchors.fill: parent;
       Rectangle {
+        id: lowerFlapRadiusApplier; //Applier of radius; visible only if not smooth (since in that case, smooth flap is rounded)
+        gradient: Gradient {
+          GradientStop { position: 0.9; color: midColor }
+          GradientStop { position: 1.0; color: darkColor }
+        }
+        height: flapRadius;
+        anchors.top: lowerFlapRect.top;
+        anchors.left: lowerFlapRect.left;
+        anchors.right: lowerFlapRect.right;
+        visible: flapPlain;
+      }
+      Rectangle {
         id: lowerFlapRect;
         width: parent.width;
         height: parent.height;
+        radius: (flapPlain) ? flapRadius : 0;
         gradient: Gradient {
           GradientStop { position: 0.0; color: midColor }
           GradientStop { position: 1.0; color: darkColor }
@@ -262,6 +300,7 @@ Item {
     y: sectionHeight + 2;
     width: flapWidth;
     height: sectionHeight;
+    radius: (flapPlain) ? flapRadius : 0;
     gradient: Gradient {
       GradientStop { position: 0.0; color: midColor }
       GradientStop { position: 1.0; color: darkColor }
@@ -292,6 +331,7 @@ Item {
       opacity: 0.0;
       anchors.fill: parent;
       visible: lowerFlap.flipped;
+      radius: flapRadius;
     }
     SequentialAnimation {
       running: lowerFlap.flipped;

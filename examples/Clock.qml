@@ -47,6 +47,7 @@ Item {
         flapFontSize: 426;
         flapAnimDuration: animationDuration;
         flapPlain: false;
+        flapRadius: 24;
       }
       Main.Flap {
         id: flap_minutes;
@@ -57,6 +58,7 @@ Item {
         flapFontSize: 426;
         flapAnimDuration: animationDuration;
         flapPlain: false;
+        flapRadius: 24;
       }
     }
   }
