@@ -5,7 +5,7 @@
 ![BuiltWithQtLogo](img/Built_with_Qt_RGB_logo.png)
 
 Developed by *Christian Visintin*  
-Version **2.2.0** ~ 23.11.2019
+Version **2.3.0** ~ 30.11.2019
 
 <p align="center">
   <img src="https://github.com/ChristianVisintin/FlapQML/blob/master/img/flapqml.png?raw=true" alt="FlapQML logo"/>
@@ -22,6 +22,7 @@ Version **2.2.0** ~ 23.11.2019
       - [setFlap](#setflap)
     - [Example](#example)
   - [Changelog](#changelog)
+    - [Version 2.3.0 (30/11/2019)](#version-230-30112019)
     - [Version 2.2.0 (23/11/2019)](#version-220-23112019)
     - [Version 2.1.0 (18/11/2019)](#version-210-18112019)
     - [Version 2.0.0 (17/11/2019)](#version-200-17112019)
@@ -44,6 +45,8 @@ These are the main FlapQML features:
   - Font
   - Color
   - Rotation speed
+  - Radius
+  - Text alignment and position
 - Built-in rotate function
 
 ---
@@ -61,6 +64,8 @@ flapWidth: 128; //Width of the flap component
 flapHeight: 196; //Height of the flap component
 flapSequence: ['0','1','2','3','4','5','6','7','8','9'] //is the sequence of strings/characters the flap can display
 flapTextPosition: textPosition_Middle; //Text position in flap
+flapTextAlignment: Text.AlignHCenter;
+flapRadius: 0; //No angle smooth
 flapFontSize: 164; //Font size in pixel of the text on the flaps
 property string flapFontFamily: "Helvetica"; //Family font of the text on the flap
 property string flapText: " "; //Text displayed by default on the flap
@@ -90,6 +95,8 @@ These are the properties supported by the Flap component.
 - **flapSequence**: The sequence of characters or string the flap has. It should be used as an array of strings. If a string is provided it will be split into an array of characters.
 - **flapPlain**: If set to false, the "previous" flaps will be visible as shown in the image ["Clock"](#clock) in the gallery. When this option is set to false, the flap height will be lower, in order to reserve space for the previous flaps.
 - **flapTextPosition**: Describes whether the text must be placed on the upper flap section, on the lower flap section or as usual in the middle. (Default: Middle)
+- **flapTextAlignment**: Describes the horizontal text alignment of the flap's text in the flap. (Default: Text.AlignHCenter)
+- **flapRadius**: Describes the optional *radius* for the flap, which smooths the angles of the flap.
   - The usable values are: *textPosition_Top*, *textPosition_Middle*, *textPosition_Bottom*
 - **flapFontSize**: Pixel size of the Flap text. Consider to set it about flapHeight * 1.4
 - **flapFontFamily**: the font family used by the Flap component. The original font used by the Solari board is very similiar to Helvetica, so I suggest you going with that.
@@ -133,6 +140,11 @@ This repository comes with an example applications, which contains 3 pratical ex
 ---
 
 ## Changelog
+
+### Version 2.3.0 (30/11/2019)
+
+- flapTextAlignment property
+- flapRadius property
 
 ### Version 2.2.0 (23/11/2019)
 
