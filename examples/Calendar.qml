@@ -4,7 +4,7 @@ import "../" as Main;
 
 Item {
   width: 1280;
-  height: 720;
+  height: 672;
 
   //Common part for all Widgets
   id: calendar;
@@ -98,7 +98,9 @@ Item {
               flapText: initialWeekday;
               flapFontSize: 128;
               flapAnimDuration: animationDuration;
+              flapTextAlignment: Text.AlignRight;
               flapPlain: false;
+              flapTextPosition: textPosition_Top;
             }
           }
         }

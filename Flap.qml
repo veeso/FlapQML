@@ -25,6 +25,7 @@ Item {
 
   id: flap;
   //Enums
+  //Text position
   readonly property int textPosition_Top: 1;
   readonly property int textPosition_Middle: 2;
   readonly property int textPosition_Bottom: 3;
@@ -34,6 +35,7 @@ Item {
   property var flapSequence: [];
   property int flapFontSize: 182;
   property int flapTextPosition: textPosition_Middle;
+  property int flapTextAlignment: Text.AlignHCenter;
   property string flapFontFamily: "Helvetica";
   property string flapText: " ";
   property bool flapPlain: true;
@@ -92,7 +94,7 @@ Item {
             font.pixelSize: flapFontSize;
             text: flapText;
             y: parent.height - (flapFontSize / 2);
-            horizontalAlignment: Text.AlignHCenter;
+            horizontalAlignment: flapTextAlignment;
             verticalAlignment: Text.AlignTop;
             clip: true;
             elide: Text.ElideRight;
@@ -165,7 +167,7 @@ Item {
         font.pixelSize: flapFontSize;
         text: flapText;
         y: parent.height - (flapFontSize / 2);
-        horizontalAlignment: Text.AlignHCenter;
+        horizontalAlignment: flapTextAlignment;
         verticalAlignment: Text.AlignTop;
         clip: true;
         elide: Text.ElideRight;
@@ -218,7 +220,7 @@ Item {
             font.pixelSize: flapFontSize;
             text: flapText;
             y: -(flapFontSize / 2) - 2;
-            horizontalAlignment: Text.AlignHCenter;
+            horizontalAlignment: flapTextAlignment;
             clip: false;
             elide: Text.ElideRight;
             width: flapWidth;
@@ -276,7 +278,7 @@ Item {
         font.pixelSize: flapFontSize;
         text: flapText;
         y: -(flapFontSize / 2) - 2;
-        horizontalAlignment: Text.AlignHCenter;
+        horizontalAlignment: flapTextAlignment;
         clip: false;
         elide: Text.ElideRight;
         width: parent.width;

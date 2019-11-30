@@ -28,7 +28,7 @@ import "./examples" as Examples;
 Window {
   visible: true
   width: 1280;
-  height: 768;
+  height: 720;
   title: qsTr("FlapQML");
   id: root;
   color: "black";
@@ -79,7 +79,7 @@ Window {
   Item {
     id: mainwindow;
     width: 1280;
-    height: 720;
+    height: 672;
     x: 0;
     y: 48;
     Examples.Flapboard {

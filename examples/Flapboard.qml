@@ -9,7 +9,7 @@ Rectangle {
   property int currPtr: 0;
 
   width: parent.width;
-  height: 720;
+  height: 672;
 
   property int animDuration: 120;
   color: "#0c0c0c"
@@ -272,7 +272,7 @@ Rectangle {
 
   Rectangle {
     x: 0;
-    y: 670;
+    y: 634;
     width: parent.width;
     height: 48;
     color: "#0c0c0c";

@@ -11,7 +11,7 @@ Item {
   property string lowerColor: "101010";
   //Internal properties
   width: 1028;
-  height: 720;
+  height: 672;
   property int lastHours: new Date().getHours();
   property int lastMinutes: new Date().getMinutes();
   property string currentHours: lastHours.toString();
