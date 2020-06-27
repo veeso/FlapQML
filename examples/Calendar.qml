@@ -73,6 +73,7 @@ Item {
               flapText: initialDay;
               flapFontSize: 182;
               flapAnimDuration: animationDuration;
+              flapBold: true;
               flapPlain: false;
               flapRadius: 16;
             }

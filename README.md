@@ -5,7 +5,7 @@
 ![BuiltWithQtLogo](img/Built_with_Qt_RGB_logo.png)
 
 Developed by *Christian Visintin*  
-Version **2.3.0** ~ 30.11.2019
+Version **2.4.0** ~ 27/06/2020
 
 <p align="center">
   <img src="https://github.com/ChristianVisintin/FlapQML/blob/master/img/flapqml.png?raw=true" alt="FlapQML logo"/>
@@ -22,11 +22,6 @@ Version **2.3.0** ~ 30.11.2019
       - [setFlap](#setflap)
     - [Example](#example)
   - [Changelog](#changelog)
-    - [Version 2.3.0 (30/11/2019)](#version-230-30112019)
-    - [Version 2.2.0 (23/11/2019)](#version-220-23112019)
-    - [Version 2.1.0 (18/11/2019)](#version-210-18112019)
-    - [Version 2.0.0 (17/11/2019)](#version-200-17112019)
-    - [Version 1.0.0](#version-100)
   - [License](#license)
   - [Gallery](#gallery)
     - [Clock](#clock)
@@ -101,6 +96,7 @@ These are the properties supported by the Flap component.
 - **flapFontSize**: Pixel size of the Flap text. Consider to set it about flapHeight * 1.4
 - **flapFontFamily**: the font family used by the Flap component. The original font used by the Solari board is very similiar to Helvetica, so I suggest you going with that.
 - **flapText**: The current flap text. It changes when you flip the component.
+- **flapBold**: If true, the text on the flap will be bold.
 - **flapAnimDuration**: the duration of a flip animation in milliseconds.
 - **brightColor**: Color of the upper part of the flip gradient.
 - **midColor**: Color of the middle part of the flip gradient.
@@ -141,34 +137,7 @@ This repository comes with an example applications, which contains 3 pratical ex
 
 ## Changelog
 
-### Version 2.3.0 (30/11/2019)
-
-- flapTextAlignment property
-- flapRadius property
-
-### Version 2.2.0 (23/11/2019)
-
-- flapSequence instead of charSequence
-- flapSequence is now a Flap property and no more a parameter of flip function.
-- Added flapTextPosition property
-- setFlap() function
-- FlapHeight now represents the entire Flap height
-- Added flapPlain property (and effect)
-
-### Version 2.1.0 (18/11/2019)
-
-- Added shadow effect to flaps.
-- Fixed text positon
-
-### Version 2.0.0 (17/11/2019)
-
-- Changed license to **GNU/GPL3**
-- Removed intervalDuration property
-- Finally flap works fine
-
-### Version 1.0.0
-
-First release
+See changelog [HERE](./CHANGELOG.md)
 
 ---
 

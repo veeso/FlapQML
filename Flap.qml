@@ -39,6 +39,7 @@ Item {
   property int flapRadius: 0;
   property string flapFontFamily: "Helvetica";
   property string flapText: " ";
+  property bool flapBold: false;
   property bool flapPlain: true;
   property int flapAnimDuration: 80;
   property int backupAnimDuration: flapAnimDuration;
@@ -104,6 +105,7 @@ Item {
             color: textColor;
             font.family: flapFontFamily;
             font.pixelSize: flapFontSize;
+            font.bold: flapBold;
             text: flapText;
             y: parent.height - (flapFontSize / 2);
             horizontalAlignment: flapTextAlignment;
@@ -190,6 +192,7 @@ Item {
         color: textColor;
         font.family: flapFontFamily;
         font.pixelSize: flapFontSize;
+        font.bold: flapBold;
         text: flapText;
         y: parent.height - (flapFontSize / 2);
         horizontalAlignment: flapTextAlignment;
@@ -256,6 +259,7 @@ Item {
             color: textColor;
             font.family: flapFontFamily;
             font.pixelSize: flapFontSize;
+            font.bold: flapBold;
             text: flapText;
             y: -(flapFontSize / 2) - 2;
             horizontalAlignment: flapTextAlignment;
@@ -315,6 +319,7 @@ Item {
         color: textColor;
         font.family: flapFontFamily;
         font.pixelSize: flapFontSize;
+        font.bold: flapBold;
         text: flapText;
         y: -(flapFontSize / 2) - 2;
         horizontalAlignment: flapTextAlignment;
