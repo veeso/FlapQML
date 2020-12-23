@@ -7,29 +7,25 @@
 Developed by *Christian Visintin*  
 Version **2.4.0** ~ 27/06/2020
 
-<p align="center">
-  <img src="https://github.com/ChristianVisintin/FlapQML/blob/master/img/flapqml.png?raw=true" alt="FlapQML logo"/>
-</p>
+![Flaps](img/flaps.gif)
 
 ---
 
 - [FlapQML](#flapqml)
-  - [Introduction](#introduction)
-  - [Implementation](#implementation)
-    - [Documentation](#documentation)
-      - [Flap](#flap)
-      - [flip](#flip)
-      - [setFlap](#setflap)
-    - [Example](#example)
-  - [Changelog](#changelog)
-  - [License](#license)
-  - [Gallery](#gallery)
-    - [Clock](#clock)
-    - [Calendar](#calendar)
+  - [Introduction 🚀](#introduction-)
+  - [Implementation 🎯](#implementation-)
+  - [Documentation 📚](#documentation-)
+    - [Flap](#flap)
+    - [flip](#flip)
+    - [setFlap](#setflap)
+  - [Examples 🧧](#examples-)
+  - [Changelog 🕒](#changelog-)
+  - [Gallery 🎬](#gallery-)
+  - [License 📜](#license-)
 
 ---
 
-## Introduction
+## Introduction 🚀
 
 FlapQML is a component for QtQuick applications which can be used to create flapboards, flipclocks and other flap-related stuff.
 The component Flap represents a single Flap, which can then be used with other flaps (in a grid for example) to create a board.
@@ -46,7 +42,7 @@ These are the main FlapQML features:
 
 ---
 
-## Implementation
+## Implementation 🎯
 
 To implement FlapQML you need to include Flap.qml in your project first, then you can instantiate a flap in this way
 
@@ -79,11 +75,13 @@ Once a flap has been instantiate, to flip it, all you have to do is to call **fl
 myFlap.flip(newChar, force)
 ```
 
-### Documentation
+---
+
+## Documentation 📚
 
 These are the properties supported by the Flap component.
 
-#### Flap
+### Flap
 
 - **flapWidth**: Total width of the Flap component in pixel
 - **flapHeight**: Height of a Flap.
@@ -103,7 +101,7 @@ These are the properties supported by the Flap component.
 - **darkColor**: Color of the lowest part of the flip gradient.
 - **backgroundColor**: Background color applied to the little rectangle between the flaps.
 
-#### flip
+### flip
 
 The flip function allows to flip the flap through its char sequence until the specified character is found. If force is true, if the current character is the same of the new character, a full rotation will be performed through the entire char sequence.
 
@@ -114,7 +112,7 @@ flip(newChar, force)
 - **newChar**: the new character the flap will display
 - **force**: normally if the currently displayed character is the same of newChar the flap won't move. If set to true will force the flap to flip anyway
 
-#### setFlap
+### setFlap
 
 The setFlap functions force the text of a flap without animating the flap itself. The provided string MUST be in the flapSequence.
 
@@ -125,7 +123,9 @@ setFlap(text)
 - **text**: the new displayed text
 If text is not in the flap sequence false is returned, otherwise it returns true.
 
-### Example
+---
+
+## Examples 🧧
 
 This repository comes with an example applications, which contains 3 pratical examples:
 
@@ -135,13 +135,25 @@ This repository comes with an example applications, which contains 3 pratical ex
 
 ---
 
-## Changelog
+## Changelog 🕒
 
 See changelog [HERE](./CHANGELOG.md)
 
 ---
 
-## License
+## Gallery 🎬
+
+> Clock
+
+![ClockExample](img/Clock.png)
+
+> Calendar
+
+![Calendar](img/Calendar.png)
+
+---
+
+## License 📜
 
 Licensed under the GNU GPLv3 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
@@ -150,15 +162,3 @@ Licensed under the GNU GPLv3 (the "License"); you may not use this file except i
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
 You can read the entire license [HERE](./LICENSE)
-
----
-
-## Gallery
-
-### Clock
-
-![ClockExample](img/Clock.png)
-
-### Calendar
-
-![Calendar](img/Calendar.png)
